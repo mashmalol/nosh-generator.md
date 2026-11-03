@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>مولد محصول نوشابه — soda-product-generator</title>
 <meta name="description" content="مهارت تولید مفهوم محصول نوشابهٔ گازدار: نام برند، طعم، سیستم بسته‌بندی، رندر قوطی و کی‌آرت کمپین — به‌همراه متن کامل مهارت و گالری تصاویر.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Markazi+Text:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --red:#B3123C;
@@ -407,6 +408,141 @@
     .gallery,
     #gallery{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
   }
+
+  :root{
+    --red:#B9432D;
+    --red-deep:#7A3025;
+    --red-soft:#F2D8C9;
+    --turq:#34786C;
+    --turq-deep:#205348;
+    --turq-soft:#DAE8D8;
+    --gold:#E5A33B;
+    --gold-deep:#80501F;
+    --gold-soft:#F3E4BD;
+    --cream:#F1E5CB;
+    --paper:#FFF8E9;
+    --ink:#2B241D;
+    --ink-soft:#66594B;
+    --line:rgba(43,36,29,.3);
+    --line-soft:rgba(43,36,29,.15);
+    --shadow:4px 4px 0 rgba(43,36,29,.16);
+    --radius:3px;
+  }
+
+  body{
+    font-family:"Markazi Text","Vazirmatn",serif;
+    font-size:18px;
+    line-height:1.75;
+    background-color:var(--cream);
+    background-image:radial-gradient(rgba(43,36,29,.12) .65px,transparent .65px);
+    background-size:7px 7px;
+  }
+  .topbar{
+    backdrop-filter:none;
+    background:var(--paper);
+    border-bottom:3px solid var(--ink);
+  }
+  .brand{font-family:"Lalezar","Markazi Text",serif;font-size:19px;font-weight:400}
+  .brand__mark{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--red);color:var(--paper);
+    border:2px solid var(--ink);
+    box-shadow:inset 0 0 0 3px var(--gold),3px 3px 0 var(--ink);
+  }
+  .brand__mark svg{width:25px;height:25px}
+  .brand small{font-family:"Vazirmatn",sans-serif;font-size:9px;letter-spacing:0}
+  .nav a{font-family:"Markazi Text",serif;font-size:17px;font-weight:700;border-radius:2px}
+  .nav a:hover{background:var(--gold-soft);color:var(--red-deep);box-shadow:none}
+  .btn{
+    border:2px solid var(--ink);
+    border-radius:3px;
+    font-family:"Lalezar","Markazi Text",serif;
+    font-size:16px;
+    font-weight:400;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .btn--primary{background:var(--red);box-shadow:3px 3px 0 var(--ink)}
+  .btn--primary:hover{background:var(--red-deep)}
+  .btn--ghost{background:var(--paper)}
+  .btn--ghost:hover{border-color:var(--turq-deep);color:var(--turq-deep)}
+  .btn--gold{background:var(--gold);box-shadow:3px 3px 0 var(--ink)}
+
+  .hero{
+    padding-block:82px 64px;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(135deg,transparent 0 34px,rgba(52,120,108,.055) 34px 36px);
+    border-bottom:3px solid var(--ink);
+  }
+  .hero::before,.hero::after{
+    width:210px;height:22px;border-radius:0;
+    background:var(--turq);opacity:.85;
+    transform:rotate(-38deg);
+  }
+  .hero::before{inset-inline-start:-58px;top:106px}
+  .hero::after{
+    width:270px;height:28px;inset-inline-end:-72px;top:auto;bottom:96px;
+    background:var(--gold);
+  }
+  .hero__grid{max-width:890px}
+  .kicker{
+    border:2px solid var(--ink);border-radius:2px;
+    background:var(--turq-soft);color:var(--turq-deep);
+    font-family:"Lalezar","Markazi Text",serif;font-size:15px;font-weight:400;
+  }
+  h1,.sec__title,.sec__kicker,.card h3,.step h3,.chip b{
+    font-family:"Lalezar","Markazi Text",serif;
+    letter-spacing:0;
+  }
+  h1{font-size:64px;line-height:1.28;font-weight:400}
+  h1 em{color:var(--red-deep);text-shadow:2px 2px 0 var(--gold)}
+  h1 em::after{display:none}
+  .lede{font-size:20px;line-height:1.9}
+  .stat{
+    border:2px solid var(--ink);border-radius:2px;
+    background:var(--gold-soft);box-shadow:3px 3px 0 var(--ink);
+  }
+  .stat:nth-child(even){background:var(--turq-soft)}
+  .stat b{font-family:"Lalezar","Markazi Text",serif;font-weight:400;font-size:23px}
+  .stat span{font-size:14px}
+
+  .sec{padding-block:70px}
+  .sec--tint{background:var(--gold-soft);border-block:2px solid var(--ink)}
+  .sec__kicker{color:var(--red-deep);font-size:18px;font-weight:400}
+  .sec__title{font-size:36px;font-weight:400;line-height:1.4}
+  .sec__desc{font-size:19px}
+  .card,.step,.chip{
+    border:2px solid var(--ink);border-radius:2px;
+    box-shadow:4px 4px 0 rgba(43,36,29,.16);
+  }
+  .card{background:var(--paper)}
+  .card--in{border-top:6px solid var(--turq)}
+  .card--out{border-top:6px solid var(--red)}
+  .card h3,.step h3{font-size:22px;font-weight:400}
+  .card p,.step p{font-size:17px}
+  ul.ticks li{font-size:17px}
+  .step{background:var(--paper)}
+  .step__num{
+    border:2px solid var(--ink);border-radius:2px;
+    background:var(--red);box-shadow:2px 2px 0 var(--gold);
+  }
+  .chip{background:var(--paper)}
+  .chip b{font-size:18px;font-weight:400}
+  .chip span{font-size:17px}
+  .codeblock,.mdpanel,textarea#md-text{border-radius:2px}
+  .mdpanel{border:2px solid var(--ink);box-shadow:5px 5px 0 rgba(43,36,29,.18)}
+  .mdpanel__bar{background:#342B25}
+  .gallery-shell{border:2px dashed var(--turq-deep);border-radius:2px;background:var(--paper)}
+  .gallery-count{border-radius:2px;background:var(--turq-soft);border:1px solid var(--turq-deep)}
+  .tile{border:2px solid var(--ink);border-radius:2px;box-shadow:3px 3px 0 rgba(43,36,29,.16)}
+  .tile:hover{border-color:var(--red);box-shadow:5px 5px 0 rgba(43,36,29,.2)}
+  .hint{border:2px solid var(--gold-deep);border-radius:2px;background:var(--gold-soft)}
+  .footer{background:var(--paper);border-top:3px solid var(--ink)}
+
+  @media (max-width:560px){
+    h1{font-size:42px}
+    .sec__title{font-size:30px}
+    .hero::before,.hero::after{display:none}
+  }
 </style>
 </head>
 <body>
@@ -416,9 +552,10 @@
   <div class="wrap topbar__in">
     <div class="brand">
       <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M7 3h10M8 3v3l-1.5 2.2A4 4 0 0 0 6 10.5V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8.5a4 4 0 0 0-.5-1.9L16 6V3"/>
-          <path d="M6.5 14h11"/>
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M10 6h12l1.5 3v15a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2V9L10 6Z" fill="currentColor" stroke="var(--ink)" stroke-width="1.5"/>
+          <path d="M10 10h13M9 22h15" stroke="var(--gold)" stroke-width="2"/>
+          <path d="m16 12 1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.2-2.3 1.2.4-2.6-1.9-1.8 2.6-.4L16 12Z" fill="var(--gold)"/>
         </svg>
       </span>
       <span>

@@ -293,9 +293,12 @@
   }
   .gallery-bar .btn{margin-inline-start:auto}
 
-  .gallery{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+  .gallery,
+  #gallery{
+    display:grid !important;
+    grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
     gap:14px;min-height:120px;
+    width:100%;
   }
   .gallery:empty::after{
     content:"هنوز تصویری اضافه نشده — فایل‌ها را اینجا رها کنید یا دکمهٔ «افزودن تصویر» را بزنید.";
@@ -401,7 +404,8 @@
     .step{grid-template-columns:1fr;gap:10px}
     .topbar__actions .btn span{display:none}
     .topbar__actions .btn{padding:10px}
-    .gallery{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+    .gallery,
+    #gallery{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
   }
 </style>
 </head>

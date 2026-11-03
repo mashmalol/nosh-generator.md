@@ -1,38 +1,37 @@
 ---
 name: soda-product-generator
-description: Generate original soda product concepts and production-ready visual directions for carbonated soft drinks. Use when the user wants soda brand names, flavors, can or bottle packaging, labels, product renders, advertising concepts, flavor systems, launch assets, or soda-focused image prompts.
+description: Design original carbonated soft-drink packaging with all visible package text written only in Persian script. Use for soda can, bottle, label, and multipack packaging design.
 ---
 
 # Soda Product Generator
 
-Create original products for **soda and carbonated soft drinks only**. Treat each request as a product-development and visual-branding task, not as a general food-and-beverage task.
+Design **soda and carbonated soft-drink packaging only**. Every design must use Persian-language copy written in Persian script on the package. Do not create campaigns, advertisements, posters, social assets, or unrelated product concepts.
 
 ## Scope
 
-Include:
+Include only:
 
 - Carbonated soft-drink brands and sub-brands
-- Flavors, formulas at a high conceptual level, serving ideas, and variant systems
-- Cans, bottles, multipacks, cartons, labels, caps, shrink sleeves, and point-of-sale packaging
-- Product renders, shelf mockups, campaign key art, social ads, launch posters, and e-commerce imagery
-- Brand names, taglines, color systems, typography direction, flavor architecture, and packaging copy
+- Can, bottle, multipack, carton, label, cap, and shrink-sleeve packaging
+- Packaging mockups and product renders that show the package clearly
+- Persian brand names, product descriptors, flavor names, and short taglines for the package
+- Color systems, Persian typography direction, flavor architecture, and package graphics
 
-Do not generate non-soda product lines. Do not present invented nutrition facts, certifications, health claims, or regulatory approvals as factual. Flag regulatory review when copy includes ingredients, allergens, caffeine, functional claims, or age-sensitive marketing.
+Do not generate non-soda products or non-packaging assets. Do not present invented nutrition facts, certifications, health claims, or regulatory approvals as factual. Use Persian placeholders for unverified required information and flag regulatory review in Persian when relevant.
 
 ## Core workflow
 
-Work incrementally and make the product commercially coherent:
+Work incrementally and keep the result focused on the package:
 
-1. **Define the brief.** Identify target audience, market or region, flavor, format, desired mood, price tier, and primary deliverable. If a choice materially changes the result, ask one focused clarification; otherwise make a sensible assumption and state it.
-2. **Build the product concept.** Create a distinctive name, flavor description, positioning, short tagline, and a compact visual direction. Avoid confusing similarity to existing brands, logos, or trade dress.
-3. **Design the package system.** Specify container format, front-panel hierarchy, logo treatment, flavor cue, color palette, pattern or illustration language, finish, and required visible text. Keep the flavor instantly legible.
-4. **Create the requested asset.** For visual generation, read and follow the image-generation skill before generating. Use one final image per requested asset unless the user explicitly asks for a sheet or variations.
-5. **Quality-check.** Confirm that the result clearly reads as soda, the product name and flavor are consistent, text is not misleading, packaging is physically plausible, and no unrelated beverage category has entered the design.
-6. **Deliver clearly.** State what was created, include the exact file path for generated assets, and give the next useful product-development step.
+1. **Define the package brief.** Identify soda flavor, container format, market, and visual direction. Ask one focused clarification only when needed; otherwise make a sensible assumption.
+2. **Design the package.** Set the front-panel hierarchy, Persian brand name, Persian product descriptor, Persian flavor name, color palette, graphics, Persian typography, and print finish.
+3. **Create the packaging asset.** For visual generation, read and follow the image-generation skill first. Generate packaging or a package mockup only.
+4. **Quality-check.** Verify that every visible word on every package is Persian script, that no Latin or Arabic-language text or non-Persian numerals appear, and that no unrelated asset type was added.
+5. **Deliver in Persian.** Provide the packaging design and concise package-copy text in Persian only.
 
 ## Product concept defaults
 
-When details are missing, use these defaults:
+When package details are missing, use these defaults:
 
 - Category: sparkling carbonated soft drink
 - Format: 330 ml slim can for a hero product, or 500 ml PET bottle for an everyday variant
@@ -42,93 +41,89 @@ When details are missing, use these defaults:
 - Visual style: bold, shelf-readable, contemporary, high contrast, with a simple repeatable graphic device
 - Tone: refreshing, optimistic, sensory, and concise
 
-Use flavor names that communicate the taste quickly. Distinguish the product through a memorable combination of flavor, color, typography, and pack structure rather than by copying a famous soda identity.
+Use Persian flavor names that communicate the taste quickly. Distinguish the package through flavor, color, Persian typography, and pack structure rather than by copying an existing soda identity.
 
 ## Packaging design checklist
 
 Every packaging concept should consider:
 
 - Brand name and logo placement
-- Product descriptor such as “sparkling soda” or “carbonated soft drink”
+- A Persian product descriptor for sparkling soda
 - Flavor name and a clear visual flavor cue
 - Container silhouette, proportions, closure, and material
 - Front, side, and top/back information zones when a full pack view is requested
 - Contrast and legibility at shelf distance and thumbnail size
-- Color palette with primary, secondary, and accent colors in HEX when useful
+- Color palette with primary, secondary, and accent colors; if HEX values are useful, keep them in design notes, never as visible package copy
 - Print finish: matte, gloss, metallic ink, spot varnish, emboss, or transparent label
 - Consistent family system for future flavors
-- Plausible legal and informational placeholders without fabricating facts
+- Plausible legal and informational placeholders written in Persian, without fabricating facts
 
-Do not place dense tiny text into a generated hero image. For production mockups, use short readable copy and identify any remaining copy as placeholder text.
+All visible package copy must be Persian and written with Persian-script letters and Persian digits only. Never include English, Latin letters, Arabic-language text, Arabic-Indic numerals, transliteration, pseudo-text, or Latin-letter logos on the package. This rule applies to every panel, seal, cap, barcode caption, background prop, and package in a multi-pack image. Keep copy short and legible; use Persian placeholders where legally required details are unknown. Do not put unrelated readable text in the image.
 
 ## Visual-generation instructions
 
-When generating soda product imagery:
+When generating soda packaging imagery:
 
 - Read the image-generation skill first.
-- Specify camera angle, lens feel, composition, container geometry, condensation, lighting, background, surface, and brand mood.
+- Specify camera angle, composition, container geometry, condensation, lighting, background, surface, and package mood.
 - Keep the can or bottle as the hero subject and preserve label geometry.
 - Use realistic materials: anodized aluminum, clear PET, glass, ink, varnish, foil, and water droplets as appropriate.
-- Request accurate, minimal package text. If exact typography is important, generate the visual without small text and add final copy in a design tool afterward.
-- State exclusions: no unrelated beverages, no extra logos, no illegible pseudo-text, no distorted cans or bottles.
-- For isolated pack assets, prefer a clean background or transparent PNG when supported. For advertising key art, use 16:9 unless another aspect ratio is requested. For e-commerce pack shots, use a centered 1:1 or 4:5 composition.
-- Save generated assets under a descriptive path such as `Art/Soda/Products/`, `Art/Soda/Packaging/`, or `Art/Soda/Campaigns/`.
+- Request only the exact Persian package copy supplied in the design. If accurate Persian lettering cannot be rendered, leave the package text area blank for later typesetting; never substitute Latin text or pseudo-text.
+- State exclusions: no English, Latin letters, Arabic-language copy, non-Persian numerals, pseudo-text, unrelated text, extra logos, unrelated products, or distorted containers.
+- Keep the package as the sole subject. Prefer a clean background or transparent PNG when supported; use a centered 1:1 or 4:5 composition unless another package-view aspect ratio is requested.
+- Save generated assets under a descriptive packaging path such as `Art/Soda/Packaging/`.
 
 ### Reusable visual prompt structure
 
 ```text
-Commercial product photograph of an original [flavor] sparkling soda in a [container format], branded “[brand name]”, [packaging design language], clear readable flavor cue, [color palette], realistic [material and finish], tiny condensation droplets, [lighting], [background], premium advertising composition, physically accurate proportions, no unrelated products, no extra logos, no illegible text.
+Packaging-only product render of an original sparkling soda in a [container format]. Show the package clearly with these exact Persian-script words only: brand «[نام فارسی]», product «[توصیف فارسی]», flavor «[طعم فارسی]». [Persian packaging design language], [color palette], realistic [material and finish], physically accurate proportions, [lighting], clean [background]. No other visible text, no Latin letters, no Arabic-language text, no non-Persian numerals, no pseudo-text, no unrelated products, no extra logos, no advertising props.
 ```
 
 ## Naming and copy rules
 
-Generate several names only when the user asks for options; otherwise provide one strong recommendation. Names should be pronounceable, distinctive, and suitable for a soda line. Avoid claims such as “healthy,” “detox,” “zero sugar,” “natural,” “organic,” “energy,” or “functional” unless the user supplied verified product facts and asks for compliant copy.
+Generate package names only when the user asks for options; otherwise provide one strong Persian-script recommendation. All user-facing copy must be in Persian. Avoid unsupported health, nutrition, or certification claims.
 
-Keep copy concise:
+Keep Persian package copy concise:
 
-- Product descriptor: 2–5 words
-- Flavor line: 1–4 words
-- Tagline: ideally under 8 words
-- Back-of-pack story: 1–3 short sentences
+- Product descriptor: ۲ تا ۵ واژه
+- Flavor line: ۱ تا ۴ واژه
+- Tagline: ideally under ۸ واژه
+- Back-of-pack story, only if requested: ۱ تا ۳ short Persian sentences
 
-Mark unverified details as placeholders, for example: `[ingredients pending]`, `[nutrition panel pending]`, or `[local compliance review]`.
+Write any unverified details as Persian-script placeholders, for example: «ترکیبات پس از تأیید درج می‌شود» or «اطلاعات تغذیه‌ای پس از بررسی درج می‌شود».
 
-## Persian-only design mode
+## Mandatory Persian packaging rule
 
-When the user asks for Persian text or a Persian-language design, write every visible package word in Persian script only. Do not add English, Latin letters, Arabic numerals, pseudo-text, or unrelated logos. Keep the package copy short and exact; prefer one brand name, one product descriptor, one flavor line, and one short tagline. Use culturally coherent visual cues such as Persian geometric patterns, but avoid copying existing brands or trade dress.
+This is the default for every request; it is not an optional mode. Design packaging only, and write all visible package text in Persian using Persian script and Persian digits. Never use English, Latin letters, Arabic-language text, Arabic-Indic numerals, transliteration, pseudo-text, or Latin-letter logos. Keep package copy short and exact: one Persian brand name, one Persian product descriptor, one Persian flavor line, and an optional short Persian tagline. Use culturally coherent visual cues such as Persian geometric patterns without copying existing brands or trade dress. If the user requests non-Persian package text or a non-packaging asset, briefly explain in Persian that this skill supports Persian-only soda packaging and continue with a packaging-only alternative.
 
 Use this bundled reference concept as a visual direction when helpful: `templates/examples/bahar-pomegranate-lemon-persian.png`.
 
-Reference concept: «بهار»، نوشابه گازدار با طعم «انار و لیمو»، با شعار «طراوت هر لحظه»؛ قوطی قرمز اناری با نقش هندسی فیروزه‌ای و جزئیات طلایی. Treat the reference as inspiration, not a fixed brand identity, and adapt the flavor, palette, and copy to the user's brief.
+Reference concept: «بهار»، نوشابه گازدار با طعم «انار و لیمو»، با شعار «طراوت هر لحظه»؛ قوطی قرمز اناری با نقش هندسی فیروزه‌ای و جزئیات طلایی. Treat the reference as inspiration, not a fixed brand identity, and adapt the flavor, palette, and Persian copy to the user's brief.
 
 ## Output format
 
-Use the following compact structure for product concepts:
+Use the following compact structure for packaging requests. Write all user-facing response text in Persian:
 
 ```markdown
-## Soda Product: [name]
+## بسته‌بندی نوشابه: [نام فارسی]
 
-**Format:** [can or bottle]
-**Flavor:** [flavor]
-**Positioning:** [one sentence]
-**Tagline:** [short line]
+**نوع بسته‌بندی:** [قوطی یا بطری]
+**طعم:** [نام فارسی طعم]
+**جهت‌گیری بصری:** [یک جمله کوتاه به فارسی]
+**شعار روی بسته:** [شعار فارسی کوتاه]
 
-### Packaging direction
-- **Hero colors:** [colors / HEX]
-- **Graphics:** [pattern, illustration, or texture]
-- **Typography:** [direction]
-- **Finish:** [material / print finish]
-- **Front-panel copy:** [short copy]
+### طراحی بسته‌بندی
+- **رنگ‌ها:** [رنگ‌ها]
+- **نقوش:** [الگو یا تصویر]
+- **تایپوگرافی فارسی:** [جهت‌گیری]
+- **جنس و پرداخت:** [جنس یا پرداخت چاپ]
+- **متن دقیق روی بسته:** [فقط متن فارسی]
 
-### Visual asset
-**Purpose:** [hero render, pack shot, campaign key art, etc.]
-**File:** [absolute Markdown link when generated]
+### تصویر بسته‌بندی
+**فایل:** [پیوند فایل در صورت تولید]
 
-### Quality check
-[brief note on readability, plausibility, and any placeholder or compliance items]
-
-### Next step
-[next product, variant, or asset]
+### بررسی نهایی
+[تأیید فارسی‌بودن همه نوشته‌های قابل‌مشاهده و خوانایی بسته]
 ```
 
-For a direct image request, prioritize the generated asset and provide only the brief concept context needed to use it. For a brand-system request, show how at least three flavors can share the same packaging architecture while remaining immediately distinguishable.
+For every request, deliver packaging only. For a product family, show how flavors share a packaging architecture while each package remains distinguishable and every visible word stays in Persian script.

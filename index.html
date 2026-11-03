@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مولد محصول نوشابه — soda-product-generator</title>
+<meta name="description" content="مهارت تولید مفهوم محصول نوشابهٔ گازدار: نام برند، طعم، سیستم بسته‌بندی، رندر قوطی و کی‌آرت کمپین — به‌همراه متن کامل مهارت و گالری تصاویر.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#B3123C;
+    --red-deep:#7A0B28;
+    --red-soft:#F7E4E9;
+    --turq:#0FA3A3;
+    --turq-deep:#0A6E6E;
+    --turq-soft:#E2F4F3;
+    --gold:#E9B949;
+    --gold-deep:#B98A1E;
+    --gold-soft:#FBF0D6;
+    --cream:#FFF7EC;
+    --paper:#FFFFFF;
+    --ink:#1A0E12;
+    --ink-soft:#5A444B;
+    --line:rgba(26,14,18,.12);
+    --line-soft:rgba(26,14,18,.07);
+    --shadow:0 14px 40px -28px rgba(26,14,18,.75);
+    --radius:20px;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Vazirmatn",Tahoma,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.9;
+    color:var(--ink);
+    background-color:var(--cream);
+    background-image:
+      linear-gradient(135deg, rgba(15,163,163,.045) 25%, transparent 25%, transparent 50%, rgba(15,163,163,.045) 50%, rgba(15,163,163,.045) 75%, transparent 75%);
+    background-size:64px 64px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%}
+  a{color:var(--turq-deep)}
+  ::selection{background:var(--gold);color:var(--ink)}
+
+  .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+  section{scroll-margin-top:96px}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(255,247,236,.86);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .topbar__in{
+    display:flex;align-items:center;gap:18px;
+    padding:12px 0;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:15px;white-space:nowrap}
+  .brand__mark{
+    width:34px;height:34px;border-radius:11px;flex:none;
+    background:linear-gradient(150deg,var(--red) 0%,var(--red-deep) 100%);
+    display:grid;place-items:center;color:#fff;
+    box-shadow:0 8px 18px -12px rgba(179,18,60,.95);
+  }
+  .brand__mark svg{width:18px;height:18px}
+  .brand small{display:block;font-weight:400;font-size:11px;color:var(--ink-soft);letter-spacing:.4px;direction:ltr;text-align:right}
+
+  .nav{display:flex;gap:4px;margin-inline-start:auto;flex-wrap:wrap}
+  .nav a{
+    text-decoration:none;color:var(--ink-soft);font-size:13.5px;font-weight:500;
+    padding:7px 12px;border-radius:999px;transition:.18s;
+  }
+  .nav a:hover{background:#fff;color:var(--red);box-shadow:inset 0 0 0 1px var(--line-soft)}
+
+  .topbar__actions{display:flex;gap:8px;flex:none}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:999px;border:1px solid transparent;
+    font:inherit;font-size:14px;font-weight:700;cursor:pointer;
+    transition:transform .18s, background .18s, border-color .18s, color .18s, box-shadow .18s;
+    white-space:nowrap;text-decoration:none;
+  }
+  .btn svg{width:16px;height:16px;flex:none}
+  .btn:active{transform:translateY(1px)}
+  .btn--primary{background:var(--red);color:#fff;box-shadow:0 10px 24px -14px rgba(179,18,60,1)}
+  .btn--primary:hover{background:var(--red-deep)}
+  .btn--ghost{background:var(--paper);color:var(--ink);border-color:var(--line)}
+  .btn--ghost:hover{border-color:var(--turq);color:var(--turq-deep)}
+  .btn--gold{background:var(--gold);color:#3B2A04;box-shadow:0 10px 24px -16px rgba(185,138,30,1)}
+  .btn--gold:hover{background:#F0C862}
+  .btn--sm{padding:8px 14px;font-size:13px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:70px 0 56px}
+  .hero::before{
+    content:"";position:absolute;inset-inline-start:-160px;top:-180px;
+    width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(15,163,163,.20), rgba(15,163,163,0) 68%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";position:absolute;inset-inline-end:-140px;bottom:-200px;
+    width:460px;height:460px;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(233,185,73,.28), rgba(233,185,73,0) 70%);
+    pointer-events:none;
+  }
+  .hero__grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1fr;gap:24px;align-items:center;
+    max-width:760px;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:700;letter-spacing:.3px;color:var(--turq-deep);
+    background:var(--turq-soft);border:1px solid rgba(15,163,163,.28);
+    padding:6px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .kicker i{width:7px;height:7px;border-radius:50%;background:var(--turq);display:block}
+  h1{
+    font-size:clamp(2rem,4.6vw,3.4rem);
+    line-height:1.3;font-weight:900;letter-spacing:-.5px;margin:0 0 18px;
+  }
+  h1 em{
+    font-style:normal;position:relative;color:var(--red);white-space:nowrap;
+  }
+  h1 em::after{
+    content:"";position:absolute;inset-inline:-2px;bottom:4px;height:10px;
+    background:var(--gold);opacity:.55;border-radius:3px;z-index:-1;
+  }
+  .lede{font-size:17px;color:var(--ink-soft);max-width:56ch;margin:0 0 28px;line-height:2}
+
+  .hero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+
+  .stats{display:flex;flex-wrap:wrap;gap:10px}
+  .stat{
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:14px;
+    padding:10px 16px;min-width:112px;box-shadow:var(--shadow);
+  }
+  .stat b{display:block;font-size:19px;font-weight:900;color:var(--red);line-height:1.4}
+  .stat span{font-size:11.5px;color:var(--ink-soft)}
+
+  .hero__art{position:relative;display:grid;place-items:center}
+  .hero__art .glow{
+    position:absolute;width:330px;height:330px;border-radius:50%;
+    background:radial-gradient(circle,rgba(179,18,60,.16),rgba(179,18,60,0) 70%);
+  }
+  .can{width:min(260px,72vw);height:auto;position:relative;z-index:1;
+       filter:drop-shadow(0 34px 34px rgba(26,14,18,.28));
+       animation:float 7s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @media (prefers-reduced-motion:reduce){.can{animation:none}}
+
+  /* ---------- Sections ---------- */
+  .sec{padding:62px 0}
+  .sec--tint{background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.72));border-block:1px solid var(--line-soft)}
+  .sec__head{max-width:70ch;margin-bottom:34px}
+  .sec__kicker{
+    font-size:12.5px;font-weight:800;color:var(--gold-deep);
+    letter-spacing:.6px;margin:0 0 8px;
+  }
+  .sec__title{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;line-height:1.45;margin:0 0 12px;letter-spacing:-.3px}
+  .sec__desc{color:var(--ink-soft);margin:0;line-height:2}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+  .card{
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow);
+  }
+  .card h3{margin:0 0 10px;font-size:16.5px;font-weight:800}
+  .card p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:2}
+
+  .card--in{border-top:4px solid var(--turq)}
+  .card--out{border-top:4px solid var(--red)}
+  .card--in h3{color:var(--turq-deep)}
+  .card--out h3{color:var(--red)}
+
+  ul.ticks{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:9px}
+  ul.ticks li{position:relative;padding-inline-start:22px;font-size:14px;color:var(--ink-soft);line-height:1.95}
+  ul.ticks li::before{
+    content:"";position:absolute;inset-inline-start:0;top:.72em;
+    width:8px;height:8px;border-radius:2px;transform:rotate(45deg);
+    background:var(--turq);
+  }
+  ul.ticks.ticks--red li::before{background:var(--red)}
+  ul.ticks.ticks--gold li::before{background:var(--gold)}
+
+  /* Steps */
+  .steps{display:grid;gap:14px;counter-reset:step}
+  .step{
+    display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:16px;
+    padding:20px 22px;box-shadow:var(--shadow);
+    transition:transform .2s, border-color .2s;
+  }
+  .step:hover{transform:translateY(-2px);border-color:rgba(15,163,163,.45)}
+  .step__num{
+    counter-increment:step;
+    width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+    background:linear-gradient(150deg,var(--turq),var(--turq-deep));
+    color:#fff;font-weight:900;font-size:16px;flex:none;
+    box-shadow:0 10px 20px -14px rgba(10,110,110,1);
+  }
+  .step__num::before{content:counter(step,persian)}
+  .step h3{margin:0 0 6px;font-size:15.5px;font-weight:800}
+  .step p{margin:0;font-size:14px;color:var(--ink-soft);line-height:2}
+
+  /* Defaults chips */
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+  .chip{
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:14px;
+    padding:14px 16px;box-shadow:var(--shadow);
+  }
+  .chip b{display:block;font-size:12px;color:var(--gold-deep);letter-spacing:.3px;margin-bottom:3px;font-weight:800}
+  .chip span{font-size:14px;color:var(--ink);line-height:1.85}
+
+  /* Code block */
+  .codeblock{
+    direction:ltr;text-align:left;
+    background:#14100F;color:#EFE3D6;border-radius:16px;padding:22px 24px;
+    font-family:var(--mono);font-size:13px;line-height:1.85;
+    overflow:auto;border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 24px 48px -34px rgba(20,16,15,1);
+    margin:0;
+  }
+  .codeblock .cmt{color:#8FA5A5}
+
+  /* Markdown panel */
+  .mdpanel{
+    border-radius:var(--radius);overflow:hidden;background:#14100F;
+    border:1px solid rgba(255,255,255,.09);
+    box-shadow:0 30px 60px -40px rgba(20,16,15,1);
+  }
+  .mdpanel__bar{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    padding:12px 16px;background:#1D1716;border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .mdpanel__file{
+    direction:ltr;font-family:var(--mono);font-size:12.5px;color:#C8B7A6;
+    display:flex;align-items:center;gap:8px;
+  }
+  .mdpanel__file i{width:9px;height:9px;border-radius:50%;background:var(--gold);display:block}
+  .mdpanel__meta{margin-inline-start:auto;font-size:11.5px;color:#8A7970}
+  .mdpanel__bar .btn{padding:7px 14px;font-size:12.5px}
+  .mdpanel__bar .btn--ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#F0E4D7}
+  .mdpanel__bar .btn--ghost:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)}
+
+  textarea#md-text{
+    display:block;width:100%;height:min(58vh,560px);
+    direction:ltr;text-align:left;
+    background:#14100F;color:#E9DCCD;border:0;outline:none;resize:vertical;
+    padding:22px 24px;
+    font-family:var(--mono);font-size:12.8px;line-height:1.85;
+    tab-size:2;
+  }
+  textarea#md-text::selection{background:var(--gold);color:#14100F}
+  textarea#md-text::-webkit-scrollbar{width:10px;height:10px}
+  textarea#md-text::-webkit-scrollbar-thumb{background:#3A302D;border-radius:10px}
+
+  .hint{
+    display:flex;gap:10px;align-items:flex-start;
+    background:var(--gold-soft);border:1px solid rgba(185,138,30,.3);
+    border-radius:14px;padding:14px 16px;font-size:13.5px;color:#6B4E09;line-height:1.95;
+    margin-top:16px;
+  }
+  .hint svg{width:18px;height:18px;flex:none;margin-top:4px}
+
+  /* Gallery */
+  .gallery-shell{
+    border-radius:var(--radius);border:1px dashed rgba(15,163,163,.4);
+    background:rgba(255,255,255,.6);
+    padding:18px;transition:.2s;
+  }
+  .gallery-shell.is-dragover{
+    border-color:var(--turq);background:var(--turq-soft);
+    box-shadow:0 0 0 4px rgba(15,163,163,.14);
+  }
+  .gallery-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+  .gallery-count{
+    font-size:12.5px;font-weight:700;color:var(--turq-deep);
+    background:var(--turq-soft);border:1px solid rgba(15,163,163,.25);
+    padding:5px 12px;border-radius:999px;
+  }
+  .gallery-bar .btn{margin-inline-start:auto}
+
+  .gallery{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    gap:14px;min-height:120px;
+  }
+  .gallery:empty::after{
+    content:"هنوز تصویری اضافه نشده — فایل‌ها را اینجا رها کنید یا دکمهٔ «افزودن تصویر» را بزنید.";
+    display:grid;place-items:center;text-align:center;
+    color:var(--ink-soft);font-size:13.5px;padding:44px 16px;
+    border-radius:14px;background:rgba(255,255,255,.7);
+  }
+
+  .tile{
+    position:relative;aspect-ratio:1/1;padding:0;overflow:hidden;
+    border:1px solid var(--line-soft);border-radius:16px;background:#fff;
+    cursor:pointer;font:inherit;
+    transition:transform .22s, box-shadow .22s, border-color .22s;
+  }
+  .tile:hover{transform:translateY(-3px);box-shadow:0 20px 36px -26px rgba(26,14,18,.9);border-color:rgba(15,163,163,.5)}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+  .tile:hover img{transform:scale(1.07)}
+  .tile__cap{
+    position:absolute;inset-inline:0;bottom:0;padding:26px 10px 9px;
+    font-size:10.5px;line-height:1.5;color:#fff;direction:ltr;text-align:center;
+    word-break:break-all;
+    background:linear-gradient(transparent,rgba(20,16,15,.82));
+    opacity:0;transition:opacity .25s;font-family:var(--mono);
+  }
+  .tile:hover .tile__cap{opacity:1}
+  .tile.is-missing{
+    cursor:default;border-style:dashed;border-color:rgba(26,14,18,.2);
+    background:repeating-linear-gradient(45deg,#fff,#fff 9px,#FBF4E8 9px,#FBF4E8 18px);
+    display:grid;place-items:center;
+  }
+  .tile.is-missing:hover{transform:none;box-shadow:none}
+  .ph{display:grid;place-items:center;gap:6px;padding:14px;text-align:center}
+  .ph svg{width:26px;height:26px;color:rgba(26,14,18,.28)}
+  .ph b{font-size:10.5px;font-family:var(--mono);direction:ltr;word-break:break-all;color:var(--ink-soft);font-weight:600;line-height:1.5}
+  .ph small{font-size:11px;color:#A08C84}
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed;inset:0;z-index:90;display:none;
+    background:rgba(16,9,12,.95);backdrop-filter:blur(6px);
+    padding:24px;
+  }
+  .lightbox.is-open{display:grid;place-items:center}
+  .lb__stage{display:grid;place-items:center;gap:14px;max-width:100%}
+  .lb__stage img{
+    max-width:min(92vw,1080px);max-height:76vh;border-radius:14px;
+    box-shadow:0 40px 90px -40px rgba(0,0,0,1);background:#000;
+  }
+  .lb__cap{color:#E4D6C8;font-size:13px;text-align:center;direction:ltr;font-family:var(--mono);word-break:break-all}
+  .lb__cap span{display:block;direction:rtl;font-family:"Vazirmatn",Tahoma,sans-serif;color:#9C8B80;font-size:12px;margin-top:4px}
+  .lb__btn{
+    position:fixed;top:50%;transform:translateY(-50%);
+    width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;
+    transition:.18s;
+  }
+  .lb__btn:hover{background:rgba(255,255,255,.2)}
+  .lb__btn svg{width:20px;height:20px}
+  .lb__prev{inset-inline-end:18px}
+  .lb__next{inset-inline-start:18px}
+  .lb__close{
+    position:fixed;top:18px;inset-inline-end:18px;
+    width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;
+  }
+  .lb__close:hover{background:rgba(255,255,255,.2)}
+  .lb__close svg{width:18px;height:18px}
+
+  /* Toast */
+  .toast{
+    position:fixed;bottom:26px;inset-inline-start:50%;transform:translate(50%,26px);
+    background:#14100F;color:#F6ECDF;border:1px solid rgba(233,185,73,.45);
+    padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:600;
+    opacity:0;pointer-events:none;transition:.28s;z-index:100;
+    box-shadow:0 20px 40px -22px rgba(0,0,0,.9);
+  }
+  .toast.is-on{opacity:1;transform:translate(50%,0)}
+
+  /* Footer */
+  .footer{
+    padding:40px 0 56px;border-top:1px solid var(--line-soft);
+    background:rgba(255,255,255,.55);
+  }
+  .footer__in{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .footer p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .footer code{
+    direction:ltr;display:inline-block;font-family:var(--mono);font-size:12px;
+    background:var(--paper);border:1px solid var(--line-soft);border-radius:8px;padding:2px 8px;
+  }
+
+  @media (max-width:900px){
+    .hero__grid{grid-template-columns:1fr;gap:36px}
+    .hero__art{order:-1}
+    .can{width:180px}
+    .grid-2,.grid-3{grid-template-columns:1fr}
+    .nav{display:none}
+    .mdpanel__meta{display:none}
+  }
+  @media (max-width:560px){
+    .wrap{width:calc(100% - 28px)}
+    .hero{padding:44px 0 34px}
+    .sec{padding:46px 0}
+    .step{grid-template-columns:1fr;gap:10px}
+    .topbar__actions .btn span{display:none}
+    .topbar__actions .btn{padding:10px}
+    .gallery{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M7 3h10M8 3v3l-1.5 2.2A4 4 0 0 0 6 10.5V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8.5a4 4 0 0 0-.5-1.9L16 6V3"/>
+          <path d="M6.5 14h11"/>
+        </svg>
+      </span>
+      <span>
+        مولد محصول نوشابه
+        <small>soda-product-generator</small>
+      </span>
+    </div>
+
+    <nav class="nav" aria-label="ناوبری">
+      <a href="#about">مهارت</a>
+      <a href="#workflow">گردش کار</a>
+      <a href="#persian">حالت فارسی</a>
+      <a href="#markdown">متن کامل</a>
+      <a href="#gallery">گالری</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <button class="btn btn--ghost btn--sm" data-action="copy" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        <span>کپی</span>
+      </button>
+      <button class="btn btn--primary btn--sm" data-action="download" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        <span>دانلود</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="kicker"><i></i> مهارت تخصصی تولید محصول نوشابهٔ گازدار</span>
+      <h1>از یک ایده تا <em>قوطی روی قفسه</em></h1>
+      <p class="lede">
+        این مهارت، هر درخواست را مثل یک پروژهٔ واقعی توسعهٔ محصول و برندسازی بصری می‌بیند:
+        نام برند، معماری طعم، سیستم بسته‌بندی، رندر محصول و کی‌آرت کمپین — همه در یک مسیر منسجم.
+        خروجی همیشه «نوشابه» است، نه هر چیز خوردنی و نوشیدنی.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#markdown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M14 3h7v7"/><path d="m10 14 11-11"/></svg>
+          دیدن متن کامل مهارت
+        </a>
+        <a class="btn btn--ghost" href="#gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          گالری تصاویر
+        </a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>۶</b><span>مرحله گردش کار</span></div>
+        <div class="stat"><b>۱</b><span>تصویر نهایی برای هر دارایی</span></div>
+        <div class="stat"><b>فارسی</b><span>حالت طراحی اختصاصی</span></div>
+        <div class="stat"><b>.md</b><span>خروجی قابل دانلود</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec sec--tint" id="about">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۱ — معرفی</p>
+      <h2 class="sec__title">این مهارت دقیقاً چه کاری انجام می‌دهد؟</h2>
+      <p class="sec__desc">
+        «مولد محصول نوشابه» یک دستیار تخصصی برای ساخت محصولات اصیل نوشابهٔ گازدار است.
+        با آن می‌توانید از صفر شروع کنید: یک بریف کوتاه بدهید و خروجی بگیرید — نام برند، توصیف طعم،
+        جهت‌گیری محصول، تگ‌لاین، سیستم بسته‌بندی و پرامپت تصویری آمادهٔ تولید.
+        نکتهٔ کلیدی این است که مهارت به‌جای پاسخ‌های عمومی، همیشه در چارچوب «نوشابه» می‌ماند.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card card--in">
+        <h3>داخل دامنه ✓</h3>
+        <ul class="ticks">
+          <li>برند و زیربرند نوشابهٔ گازدار</li>
+          <li>طعم، فرمول در سطح مفهومی، ایدهٔ سرو و سیستم واریانت</li>
+          <li>قوطی، بطری، مولتی‌پک، کارتن، لیبل، درب، شرینک‌سلیو و بسته‌بندی نقطهٔ فروش</li>
+          <li>رندر محصول، ماکاپ قفسه، کی‌آرت کمپین، تبلیغ سوشال، پوستر لانچ و تصویر فروشگاهی</li>
+          <li>نام برند، تگ‌لاین، سیستم رنگ، جهت تایپوگرافی، معماری طعم و متن روی بسته</li>
+        </ul>
+      </div>
+
+      <div class="card card--out">
+        <h3>خارج از دامنه ✕</h3>
+        <ul class="ticks ticks--red">
+          <li>هر خط محصولی که نوشابهٔ گازدار نیست (غذا، لبنیات، مکمل، نوشیدنی الکلی)</li>
+          <li>ارائهٔ حقایق تغذیه‌ای، گواهینامه، ادعای سلامت یا تأییدیهٔ قانونی به‌عنوان واقعیت</li>
+          <li>جعل اطلاعات علمی یا عددی دربارهٔ محصول</li>
+          <li>کپی از هویت بصری، لوگو یا trade dress برندهای موجود</li>
+        </ul>
+        <p style="margin-top:14px">
+          اگر متن بسته شامل مواد تشکیل‌دهنده، آلرژن، کافئین، ادعای عملکردی یا بازاریابی حساس به سن باشد،
+          مهارت صریحاً «بازبینی قانونی» را علامت می‌زند.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+<section class="sec" id="workflow">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۲ — گردش کار</p>
+      <h2 class="sec__title">شش مرحله، گام‌به‌گام و منسجم</h2>
+      <p class="sec__desc">
+        مهارت به‌صورت افزایشی کار می‌کند؛ هر مرحله روی مرحلهٔ قبل ساخته می‌شود تا محصول در نهایت
+        از نظر تجاری و بصری یکپارچه باشد.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step__num"></div>
+        <div>
+          <h3>تعریف بریف</h3>
+          <p>مخاطب هدف، بازار یا منطقه، طعم، فرمت، حال‌وهوای موردنظر، ردهٔ قیمتی و خروجی اصلی مشخص می‌شود. اگر یک انتخاب نتیجه را جدی تغییر دهد، فقط <b>یک</b> پرسش دقیق پرسیده می‌شود؛ در غیر این صورت یک فرض معقول گذاشته و اعلام می‌شود.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num"></div>
+        <div>
+          <h3>ساخت مفهوم محصول</h3>
+          <p>یک نام متمایز، توصیف طعم، پوزیشنینگ، تگ‌لاین کوتاه و یک جهت بصری فشرده ساخته می‌شود. شباهت گمراه‌کننده با برندها، لوگوها و trade dress موجود عمداً پرهیز می‌شود.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num"></div>
+        <div>
+          <h3>طراحی سیستم بسته‌بندی</h3>
+          <p>فرمت ظرف، سلسله‌مراتب پنل جلو، نحوهٔ قرارگیری لوگو، نشانهٔ طعم، پالت رنگ، زبان الگو یا تصویرسازی، فینیش چاپ و متن‌های الزامی تعیین می‌شود. قاعدهٔ طلایی: <b>طعم باید در یک نگاه خوانده شود.</b></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num"></div>
+        <div>
+          <h3>ساخت دارایی درخواستی</h3>
+          <p>برای تولید تصویر، اول مهارت تصویرسازی خوانده و اجرا می‌شود. برای هر دارایی، <b>یک تصویر نهایی</b> تولید می‌شود مگر اینکه کاربر صریحاً شیت یا چند واریانت بخواهد.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num"></div>
+        <div>
+          <h3>کنترل کیفیت</h3>
+          <p>بررسی می‌شود که نتیجه واضحاً «نوشابه» خوانده شود، نام و طعم هم‌خوان باشند، متن گمراه‌کننده نباشد، بسته‌بندی از نظر فیزیکی منطقی باشد و هیچ مقولهٔ نوشیدنی بی‌ربطی به طراحی وارد نشده باشد.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step__num"></div>
+        <div>
+          <h3>تحویل شفاف</h3>
+          <p>اعلام می‌شود چه چیزی ساخته شد، مسیر دقیق فایل دارایی‌های تولیدشده داده می‌شود و قدم بعدی مفید برای توسعهٔ محصول پیشنهاد می‌گردد.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEFAULTS ================= -->
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۳ — پیش‌فرض‌ها</p>
+      <h2 class="sec__title">وقتی جزئیات مشخص نیست، این پیش‌فرض‌ها اعمال می‌شوند</h2>
+      <p class="sec__desc">این‌ها نقطهٔ شروع امن برای یک محصول تجاری و قابل‌دفاع هستند.</p>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><b>دسته</b><span>نوشابهٔ گازدار sparkling</span></div>
+      <div class="chip"><b>فرمت</b><span>قوطی اسلیم ۳۳۰ میلی‌لیتر برای محصول اصلی، بطری PET ۵۰۰ میلی‌لیتر برای واریانت روزمره</span></div>
+      <div class="chip"><b>پوزیشنینگ</b><span>پریمیوم مدرن و در دسترس</span></div>
+      <div class="chip"><b>طعم</b><span>یک طعم میوه‌ای یا گیاهی شفاف با نشانهٔ رنگ قابل‌تشخیص</span></div>
+      <div class="chip"><b>مخاطب</b><span>مخاطب بزرگسال گسترده، مگر اینکه کاربر خلافش را بگوید</span></div>
+      <div class="chip"><b>سبک بصری</b><span>جسور، خوانا روی قفسه، معاصر، کنتراست بالا، با یک عنصر گرافیکی تکرارشدنی</span></div>
+      <div class="chip"><b>لحن</b><span>طراوت‌بخش، خوش‌بین، حسی و موجز</span></div>
+    </div>
+
+    <div class="hint" style="margin-top:22px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 12h1v4h1"/></svg>
+      <span>تمایز محصول از طریق ترکیب به‌یادماندنی «طعم + رنگ + تایپوگرافی + ساختار بسته» ساخته می‌شود، نه با کپی از هویت یک نوشابهٔ مشهور.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHECKLIST + COPY RULES ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="grid-2" style="gap:26px">
+
+      <div class="card">
+        <h3 style="color:var(--turq-deep)">۰۴ — چک‌لیست طراحی بسته‌بندی</h3>
+        <p>هر مفهوم بسته‌بندی باید این موارد را در نظر بگیرد:</p>
+        <ul class="ticks">
+          <li>جایگاه نام برند و لوگو</li>
+          <li>توصیف محصول مثل «نوشابهٔ گازدار»</li>
+          <li>نام طعم و یک نشانهٔ بصری روشن برای آن</li>
+          <li>سیلوئت ظرف، تناسب، درب و جنس</li>
+          <li>نواحی اطلاعاتی جلو، پهلو و بالا/پشت در نمای کامل بسته</li>
+          <li>کنتراست و خوانایی از فاصلهٔ قفسه و در اندازهٔ بندانگشتی</li>
+          <li>پالت رنگ اصلی، ثانویه و تأکیدی (در صورت نیاز با HEX)</li>
+          <li>فینیش چاپ: مات، براق، مرکب متالیک، اسپات وارنیش، امباس یا لیبل شفاف</li>
+          <li>سیستم خانوادهٔ منسجم برای طعم‌های آینده</li>
+          <li>جای‌نگهدارهای منطقی حقوقی و اطلاعاتی، بدون جعل واقعیت</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--red)">۰۵ — قواعد نام‌گذاری و متن</h3>
+        <p>متن‌ها کوتاه، دقیق و قابل‌دفاع می‌مانند.</p>
+        <ul class="ticks ticks--gold">
+          <li>چند نام فقط وقتی پیشنهاد می‌شود که کاربر گزینه بخواهد؛ وگرنه یک پیشنهاد قوی داده می‌شود.</li>
+          <li>نام‌ها تلفظ‌پذیر، متمایز و مناسب یک خط نوشابه باشند.</li>
+          <li>ادعاهایی مثل «سلامت»، «دیتاکس»، «بدون شکر»، «طبیعی»، «ارگانیک»، «انرژی‌زا» یا «عملگرا» استفاده نمی‌شود مگر کاربر اطلاعات تأییدشده داده و متن منطبق خواسته باشد.</li>
+          <li>توصیف محصول: ۲ تا ۵ کلمه — خط طعم: ۱ تا ۴ کلمه</li>
+          <li>تگ‌لاین: در حالت ایده‌آل زیر ۸ کلمه — متن پشت بسته: ۱ تا ۳ جملهٔ کوتاه</li>
+          <li>جزئیات تأییدنشده به‌صورت جای‌نگهدار علامت‌گذاری می‌شوند.</li>
+        </ul>
+        <div class="codeblock" style="margin-top:16px;padding:16px 18px;font-size:12px">
+<span class="cmt">// placeholder examples</span>
+[ingredients pending]
+[nutrition panel pending]
+[local compliance review]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PERSIAN MODE ================= -->
+<section class="sec sec--tint" id="persian">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۶ — حالت طراحی فارسی</p>
+      <h2 class="sec__title">وقتی کاربر طراحی فارسی می‌خواهد</h2>
+      <p class="sec__desc">
+        این بخش قلب طراحی بومی این مهارت است: تمام کلمات روی بسته فقط با خط فارسی نوشته می‌شوند.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--turq-deep)">قواعد سخت‌گیرانه</h3>
+        <ul class="ticks">
+          <li>هیچ حرف لاتین، عدد لاتین، شبه‌متن یا لوگوی بی‌ربطی روی بسته نمی‌آید.</li>
+          <li>متن کوتاه و دقیق: یک نام برند، یک توصیف محصول، یک خط طعم و یک تگ‌لاین کوتاه.</li>
+          <li>نشانه‌های فرهنگی هم‌خوان مثل نقش‌های هندسی ایرانی استفاده می‌شود.</li>
+          <li>کپی از برندها یا trade dress موجود ممنوع است.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-inline-start:4px solid var(--gold)">
+        <h3 style="color:var(--gold-deep)">مفهوم مرجع همراه مهارت</h3>
+        <p style="margin-bottom:14px">
+          «بهار»، نوشابهٔ گازدار با طعم «انار و لیمو»، با شعار «طراوت هر لحظه»؛
+          قوطی قرمز اناری با نقش هندسی فیروزه‌ای و جزئیات طلایی.
+        </p>
+        <p>
+          این مفهوم فقط یک <b>جهت بصری</b> است، نه هویت ثابت برند. طعم، پالت و متن باید با بریف کاربر
+          تطبیق داده شوند. همین زبان بصری، الهام‌بخش طراحی همین صفحه هم بوده است.
+        </p>
+        <p style="margin-top:12px">
+          فایل مرجع:
+          <code style="direction:ltr;display:inline-block;font-family:var(--mono);font-size:12px;background:var(--cream);border:1px solid var(--line-soft);border-radius:8px;padding:2px 8px">templates/examples/bahar-pomegranate-lemon-persian.png</code>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTPUT FORMAT ================= -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۷ — قالب خروجی</p>
+      <h2 class="sec__title">ساختار فشردهٔ پاسخ برای هر مفهوم محصول</h2>
+      <p class="sec__desc">همین قالب برای درخواست‌های برند سیستم هم استفاده می‌شود؛ با این تفاوت که حداقل سه طعم باید معماری بستهٔ مشترک داشته باشند و در همان حال فوراً از هم قابل‌تشخیص باشند.</p>
+    </div>
+
+<pre class="codeblock">## Soda Product: [name]
+
+**Format:** [can or bottle]
+**Flavor:** [flavor]
+**Positioning:** [one sentence]
+**Tagline:** [short line]
+
+### Packaging direction
+- **Hero colors:** [colors / HEX]
+- **Graphics:** [pattern, illustration, or texture]
+- **Typography:** [direction]
+- **Finish:** [material / print finish]
+- **Front-panel copy:** [short copy]
+
+### Visual asset
+**Purpose:** [hero render, pack shot, campaign key art, etc.]
+**File:** [absolute Markdown link when generated]
+
+### Quality check
+[brief note on readability, plausibility, and any placeholder or compliance items]
+
+### Next step
+[next product, variant, or asset]</pre>
+
+    <div class="hint" style="margin-top:22px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.4 9 9 5.2-.6 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span>
+        برای درخواست مستقیم تصویر، اولویت با دارایی تولیدشده است و فقط همان مقدار زمینهٔ مفهومی لازم ارائه می‌شود.
+        برای درخواست برند سیستم، حداقل سه طعم در یک معماری مشترک نمایش داده می‌شود.
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISUAL GENERATION ================= -->
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۸ — تولید تصویر</p>
+      <h2 class="sec__title">دستورالعمل ساخت تصویر نوشابه</h2>
+      <p class="sec__desc">پیش از هر تولید تصویر، مهارت تصویرسازی خوانده می‌شود. سپس این پارامترها مشخص می‌گردند.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>قاب‌بندی</h3>
+        <p>زاویهٔ دوربین، حس لنز، ترکیب‌بندی، هندسهٔ ظرف، تعریق، نورپردازی، پس‌زمینه، سطح و حال‌وهوای برند.</p>
+      </div>
+      <div class="card">
+        <h3>متریال واقعی</h3>
+        <p>آلومینیوم آنودایز، PET شفاف، شیشه، مرکب، وارنیش، فویل و قطرات آب — با تناسبات فیزیکی درست.</p>
+      </div>
+      <div class="card">
+        <h3>متن بسته</h3>
+        <p>متن دقیق و حداقلی. اگر تایپوگرافی حیاتی است، تصویر بدون متن ریز ساخته و کپی نهایی بعداً در ابزار طراحی اضافه می‌شود.</p>
+      </div>
+      <div class="card">
+        <h3>نسبت تصویر</h3>
+        <p>کی‌آرت تبلیغاتی ۱۶:۹ — عکس محصول فروشگاهی ۱:۱ یا ۴:۵ — دارایی جدا روی پس‌زمینهٔ تمیز یا PNG شفاف.</p>
+      </div>
+      <div class="card">
+        <h3>مسیر ذخیره</h3>
+        <p><code style="direction:ltr;display:inline-block;font-family:var(--mono);font-size:12px">Art/Soda/Products/</code> ، <code style="direction:ltr;display:inline-block;font-family:var(--mono);font-size:12px">Art/Soda/Packaging/</code> ، <code style="direction:ltr;display:inline-block;font-family:var(--mono);font-size:12px">Art/Soda/Campaigns/</code></p>
+      </div>
+      <div class="card">
+        <h3>موارد ممنوعه</h3>
+        <p>نوشیدنی بی‌ربط، لوگوی اضافه، شبه‌متن ناخوانا، قوطی یا بطری دفرمه و اعوجاج در هندسهٔ برچسب.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARKDOWN ================= -->
+<section class="sec" id="markdown">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۰۹ — متن کامل مهارت</p>
+      <h2 class="sec__title">فایل اصلی <span style="direction:ltr;display:inline-block">skill.md</span></h2>
+      <p class="sec__desc">
+        متن زیر همان محتوای کامل مهارت است. می‌توانید همه را انتخاب و کپی کنید، یا فایل مارک‌داون را دانلود کنید.
+      </p>
+    </div>
+
+    <div class="mdpanel">
+      <div class="mdpanel__bar">
+        <span class="mdpanel__file"><i></i>soda-product-generator.md</span>
+        <span class="mdpanel__meta" id="md-meta"></span>
+        <button class="btn btn--ghost btn--sm" data-action="copy" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          کپی متن
+        </button>
+        <button class="btn btn--gold btn--sm" data-action="download" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+          دانلود .md
+        </button>
+      </div>
+      <textarea id="md-text" spellcheck="false" dir="ltr" aria-label="محتوای کامل مهارت soda-product-generator">---
+name: soda-product-generator
+description: Generate original soda product concepts and production-ready visual directions for carbonated soft drinks. Use when the user wants soda brand names, flavors, can or bottle packaging, labels, product renders, advertising concepts, flavor systems, launch assets, or soda-focused image prompts.
+---
+
+# Soda Product Generator
+
+Create original products for **soda and carbonated soft drinks only**. Treat each request as a product-development and visual-branding task, not as a general food-and-beverage task.
+
+## Scope
+
+Include:
+
+- Carbonated soft-drink brands and sub-brands
+- Flavors, formulas at a high conceptual level, serving ideas, and variant systems
+- Cans, bottles, multipacks, cartons, labels, caps, shrink sleeves, and point-of-sale packaging
+- Product renders, shelf mockups, campaign key art, social ads, launch posters, and e-commerce imagery
+- Brand names, taglines, color systems, typography direction, flavor architecture, and packaging copy
+
+Do not generate non-soda product lines. Do not present invented nutrition facts, certifications, health claims, or regulatory approvals as factual. Flag regulatory review when copy includes ingredients, allergens, caffeine, functional claims, or age-sensitive marketing.
+
+## Core workflow
+
+Work incrementally and make the product commercially coherent:
+
+1. **Define the brief.** Identify target audience, market or region, flavor, format, desired mood, price tier, and primary deliverable. If a choice materially changes the result, ask one focused clarification; otherwise make a sensible assumption and state it.
+2. **Build the product concept.** Create a distinctive name, flavor description, positioning, short tagline, and a compact visual direction. Avoid confusing similarity to existing brands, logos, or trade dress.
+3. **Design the package system.** Specify container format, front-panel hierarchy, logo treatment, flavor cue, color palette, pattern or illustration language, finish, and required visible text. Keep the flavor instantly legible.
+4. **Create the requested asset.** For visual generation, read and follow the image-generation skill before generating. Use one final image per requested asset unless the user explicitly asks for a sheet or variations.
+5. **Quality-check.** Confirm that the result clearly reads as soda, the product name and flavor are consistent, text is not misleading, packaging is physically plausible, and no unrelated beverage category has entered the design.
+6. **Deliver clearly.** State what was created, include the exact file path for generated assets, and give the next useful product-development step.
+
+## Product concept defaults
+
+When details are missing, use these defaults:
+
+- Category: sparkling carbonated soft drink
+- Format: 330 ml slim can for a hero product, or 500 ml PET bottle for an everyday variant
+- Positioning: modern, accessible premium
+- Flavor: a clear fruit or botanical flavor with a recognizable color cue
+- Audience: broad adult audience unless the user specifies otherwise
+- Visual style: bold, shelf-readable, contemporary, high contrast, with a simple repeatable graphic device
+- Tone: refreshing, optimistic, sensory, and concise
+
+Use flavor names that communicate the taste quickly. Distinguish the product through a memorable combination of flavor, color, typography, and pack structure rather than by copying a famous soda identity.
+
+## Packaging design checklist
+
+Every packaging concept should consider:
+
+- Brand name and logo placement
+- Product descriptor such as "sparkling soda" or "carbonated soft drink"
+- Flavor name and a clear visual flavor cue
+- Container silhouette, proportions, closure, and material
+- Front, side, and top/back information zones when a full pack view is requested
+- Contrast and legibility at shelf distance and thumbnail size
+- Color palette with primary, secondary, and accent colors in HEX when useful
+- Print finish: matte, gloss, metallic ink, spot varnish, emboss, or transparent label
+- Consistent family system for future flavors
+- Plausible legal and informational placeholders without fabricating facts
+
+Do not place dense tiny text into a generated hero image. For production mockups, use short readable copy and identify any remaining copy as placeholder text.
+
+## Visual-generation instructions
+
+When generating soda product imagery:
+
+- Read the image-generation skill first.
+- Specify camera angle, lens feel, composition, container geometry, condensation, lighting, background, surface, and brand mood.
+- Keep the can or bottle as the hero subject and preserve label geometry.
+- Use realistic materials: anodized aluminum, clear PET, glass, ink, varnish, foil, and water droplets as appropriate.
+- Request accurate, minimal package text. If exact typography is important, generate the visual without small text and add final copy in a design tool afterward.
+- State exclusions: no unrelated beverages, no extra logos, no illegible pseudo-text, no distorted cans or bottles.
+- For isolated pack assets, prefer a clean background or transparent PNG when supported. For advertising key art, use 16:9 unless another aspect ratio is requested. For e-commerce pack shots, use a centered 1:1 or 4:5 composition.
+- Save generated assets under a descriptive path such as `Art/Soda/Products/`, `Art/Soda/Packaging/`, or `Art/Soda/Campaigns/`.
+
+### Reusable visual prompt structure
+
+```text
+Commercial product photograph of an original [flavor] sparkling soda in a [container format], branded "[brand name]", [packaging design language], clear readable flavor cue, [color palette], realistic [material and finish], tiny condensation droplets, [lighting], [background], premium advertising composition, physically accurate proportions, no unrelated products, no extra logos, no illegible text.</textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="sec sec--tint" id="gallery">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__kicker">۱۰ — گالری تصاویر</p>
+      <h2 class="sec__title">مجموعه‌ای از نمونه‌های بصری برای ایده‌های نوشابه</h2>
+      <p class="sec__desc">
+        این گالری از تصاویر محلی صفحه استفاده می‌کند و می‌تواند به‌صورت دستی با کشیدن فایل‌ها یا انتخاب از دستگاه، گسترش پیدا کند.
+      </p>
+    </div>
+
+    <div class="gallery-shell" id="gallery-shell">
+      <div class="gallery-bar">
+        <span class="gallery-count" id="gallery-count">۶ تصویر</span>
+        <input id="gallery-input" type="file" accept="image/*" multiple hidden>
+        <button class="btn btn--ghost btn--sm" data-gallery="add" type="button">افزودن تصویر</button>
+      </div>
+      <div class="gallery" id="gallery" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="پیش‌نمایش تصویر">
+  <button class="lb__close" id="lb-close" type="button" aria-label="بستن">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button class="lb__btn lb__prev" id="lb-prev" type="button" aria-label="قبلی">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <button class="lb__btn lb__next" id="lb-next" type="button" aria-label="بعدی">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+  <div class="lb__stage">
+    <img id="lightbox-image" alt="پیش‌نمایش تصویر">
+    <div class="lb__cap" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <p>مولد محصول نوشابه — نسخهٔ آزمایشی و قابل‌اجرا در مرورگر</p>
+    <p>فایل اصلی: <code>soda-product-generator.md</code></p>
+  </div>
+</footer>
+
+<script>
+  const galleryImages = [
+    { src: 'Gallery files/bahar-orange-saffron-persian.png', title: 'bahar-orange-saffron-persian.png' },
+    { src: 'Gallery files/bahar-peach-rose-persian.png', title: 'bahar-peach-rose-persian.png' },
+    { src: 'Gallery files/bahar-pomegranate-lemon-persian.png', title: 'bahar-pomegranate-lemon-persian.png' },
+    { src: 'Gallery files/bahar-sour-cherry-mint-persian.png', title: 'bahar-sour-cherry-mint-persian.png' },
+    { src: 'Gallery files/narvan-orange-mint-minimal-persian.png', title: 'narvan-orange-mint-minimal-persian.png' },
+    { src: 'Gallery files/narvan-orange-mint-persian.png', title: 'narvan-orange-mint-persian.png' }
+  ];
+
+  const gallery = document.getElementById('gallery');
+  const galleryInput = document.getElementById('gallery-input');
+  const galleryCount = document.getElementById('gallery-count');
+  const galleryShell = document.getElementById('gallery-shell');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const toast = document.getElementById('toast');
+  const mdText = document.getElementById('md-text');
+  const mdMeta = document.getElementById('md-meta');
+
+  let galleryItems = [...galleryImages];
+  let currentLightboxIndex = 0;
+  let toastTimer = null;
+
+  function updateMdMeta() {
+    const value = mdText.value || '';
+    const words = value.trim() ? value.trim().split(/\s+/).length : 0;
+    mdMeta.textContent = `${value.length} کاراکتر • ${words} کلمه`;
+  }
+
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-on'), 2200);
+  }
+
+  function renderGallery() {
+    gallery.innerHTML = '';
+    galleryItems.forEach((item, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tile';
+      button.setAttribute('aria-label', `نمایش ${item.title}`);
+      button.innerHTML = `
+        <img src="${item.src}" alt="${item.title}">
+        <span class="tile__cap">${item.title}</span>
+      `;
+      button.addEventListener('click', () => openLightbox(index));
+      gallery.appendChild(button);
+    });
+    galleryCount.textContent = `${galleryItems.length} تصویر`;
+  }
+
+  function openLightbox(index) {
+    currentLightboxIndex = index;
+    const item = galleryItems[index];
+    if (!item) return;
+    lightboxImage.src = item.src;
+    lightboxImage.alt = item.title;
+    lightboxCaption.innerHTML = `${item.title}<span>پیش‌نمایش تصویر</span>`;
+    lightbox.classList.add('is-open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+  }
+
+  function moveLightbox(step) {
+    if (!galleryItems.length) return;
+    const nextIndex = (currentLightboxIndex + step + galleryItems.length) % galleryItems.length;
+    openLightbox(nextIndex);
+  }
+
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const helper = document.createElement('textarea');
+    helper.value = text;
+    helper.setAttribute('readonly', '');
+    helper.style.position = 'fixed';
+    helper.style.left = '-9999px';
+    document.body.appendChild(helper);
+    helper.select();
+    document.execCommand('copy');
+    document.body.removeChild(helper);
+  }
+
+  function downloadMarkdown() {
+    const content = mdText.value || '';
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'soda-product-generator.md';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    showToast('فایل Markdown دانلود شد');
+  }
+
+  document.querySelectorAll('[data-action]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const action = button.dataset.action;
+      if (action === 'copy') {
+        try {
+          await copyText(mdText.value);
+          showToast('متن کپی شد');
+        } catch (error) {
+          showToast('کپی انجام نشد');
+        }
+      }
+
+      if (action === 'download') {
+        downloadMarkdown();
+      }
+    });
+  });
+
+  document.querySelector('[data-gallery="add"]').addEventListener('click', () => galleryInput.click());
+
+  galleryInput.addEventListener('change', (event) => {
+    const files = Array.from(event.target.files || []);
+    if (!files.length) return;
+
+    files.forEach((file) => {
+      if (!file.type.startsWith('image/')) return;
+      galleryItems.push({
+        src: URL.createObjectURL(file),
+        title: file.name
+      });
+    });
+
+    renderGallery();
+    galleryInput.value = '';
+    showToast(`${files.filter((file) => file.type.startsWith('image/')).length} تصویر اضافه شد`);
+  });
+
+  ['dragenter', 'dragover'].forEach((eventName) => {
+    galleryShell.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      galleryShell.classList.add('is-dragover');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach((eventName) => {
+    galleryShell.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      galleryShell.classList.remove('is-dragover');
+    });
+  });
+
+  galleryShell.addEventListener('drop', (event) => {
+    const files = Array.from(event.dataTransfer?.files || []);
+    if (!files.length) return;
+    files.forEach((file) => {
+      if (!file.type.startsWith('image/')) return;
+      galleryItems.push({ src: URL.createObjectURL(file), title: file.name });
+    });
+    renderGallery();
+    showToast(`${files.filter((file) => file.type.startsWith('image/')).length} تصویر اضافه شد`);
+  });
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', () => moveLightbox(-1));
+  document.getElementById('lb-next').addEventListener('click', () => moveLightbox(1));
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') moveLightbox(-1);
+    if (event.key === 'ArrowRight') moveLightbox(1);
+  });
+
+  mdText.addEventListener('input', updateMdMeta);
+  updateMdMeta();
+  renderGallery();
+</script>
+</body>
+</html>

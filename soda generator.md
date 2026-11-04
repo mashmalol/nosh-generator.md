@@ -65,6 +65,7 @@ All visible package copy must be Persian and written with Persian-script letters
 When generating soda packaging imagery:
 
 - Read the image-generation skill first.
+- Note that the skill may produce different results across different image models, because each model handles Persian typography, packaging detail, and text fidelity differently.
 - Specify camera angle, composition, container geometry, condensation, lighting, background, surface, and package mood.
 - Keep the can or bottle as the hero subject and preserve label geometry.
 - Use realistic materials: anodized aluminum, clear PET, glass, ink, varnish, foil, and water droplets as appropriate.

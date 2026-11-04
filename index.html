@@ -80,25 +80,52 @@
   }
   .nav a:hover{background:#fff;color:var(--red);box-shadow:inset 0 0 0 1px var(--line-soft)}
 
-  .topbar__actions{display:flex;gap:8px;flex:none}
+  .topbar__actions{display:flex;gap:8px;flex:none;flex-wrap:wrap;justify-content:flex-end}
+  .topbar__social{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .topbar__social a{
+    text-decoration:none;font-family:"Lalezar","Markazi Text",serif;font-size:13px;line-height:1;
+    font-weight:400;letter-spacing:.03em;color:var(--ink-soft);padding:8px 11px;border-radius:999px;
+    border:1px solid rgba(26,14,18,.12);background:rgba(255,255,255,.72);
+    box-shadow:0 8px 18px -18px rgba(26,14,18,.72);transition:.2s ease;
+  }
+  .topbar__social a:hover{
+    border-color:rgba(15,163,163,.38);color:var(--turq-deep);background:var(--turq-soft);
+    transform:translateY(-1px);box-shadow:0 12px 20px -18px rgba(15,163,163,.7);
+  }
 
   /* ---------- Buttons ---------- */
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;position:relative;
     padding:11px 18px;border-radius:999px;border:1px solid transparent;
-    font:inherit;font-size:14px;font-weight:700;cursor:pointer;
-    transition:transform .18s, background .18s, border-color .18s, color .18s, box-shadow .18s;
-    white-space:nowrap;text-decoration:none;
+    font-family:"Lalezar","Markazi Text",serif;font-size:15px;line-height:1.1;letter-spacing:.03em;
+    font-weight:400;cursor:pointer;overflow:hidden;white-space:nowrap;text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+    box-shadow:0 10px 22px -18px rgba(26,14,18,.8);
   }
-  .btn svg{width:16px;height:16px;flex:none}
-  .btn:active{transform:translateY(1px)}
-  .btn--primary{background:var(--red);color:#fff;box-shadow:0 10px 24px -14px rgba(179,18,60,1)}
-  .btn--primary:hover{background:var(--red-deep)}
-  .btn--ghost{background:var(--paper);color:var(--ink);border-color:var(--line)}
-  .btn--ghost:hover{border-color:var(--turq);color:var(--turq-deep)}
-  .btn--gold{background:var(--gold);color:#3B2A04;box-shadow:0 10px 24px -16px rgba(185,138,30,1)}
-  .btn--gold:hover{background:#F0C862}
-  .btn--sm{padding:8px 14px;font-size:13px}
+  .btn::before{
+    content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,0));
+    opacity:.9;pointer-events:none;
+  }
+  .btn svg{width:16px;height:16px;flex:none;position:relative;z-index:1}
+  .btn span,.btn{position:relative;z-index:1}
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn--primary{
+    background:linear-gradient(180deg,#C9194A 0%, var(--red) 100%);color:#fff;
+    box-shadow:0 14px 26px -16px rgba(179,18,60,1), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  .btn--primary:hover{background:linear-gradient(180deg,#B3123C 0%, var(--red-deep) 100%)}
+  .btn--ghost{
+    background:linear-gradient(180deg,#fff 0%, #fffaf4 100%);color:var(--ink);
+    border-color:rgba(26,14,18,.12);box-shadow:0 12px 24px -20px rgba(26,14,18,.82);
+  }
+  .btn--ghost:hover{border-color:rgba(15,163,163,.45);color:var(--turq-deep);background:linear-gradient(180deg,#fff 0%, var(--turq-soft) 100%)}
+  .btn--gold{
+    background:linear-gradient(180deg,#F6CF6D 0%, var(--gold) 100%);color:#3B2A04;
+    box-shadow:0 14px 26px -18px rgba(185,138,30,1), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  .btn--gold:hover{background:linear-gradient(180deg,#F0C862 0%, #E6AF37 100%)}
+  .btn--sm{padding:9px 15px;font-size:14px}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;overflow:hidden;padding:70px 0 56px}
@@ -379,6 +406,18 @@
   .toast.is-on{opacity:1;transform:translate(50%,0)}
 
   /* Footer */
+  .creator-card{
+    display:grid;gap:18px;
+  }
+  .creator-card__header{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  .creator-links{
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .creator-links .btn{
+    min-width:140px;
+  }
   .footer{
     padding:40px 0 56px;border-top:1px solid var(--line-soft);
     background:rgba(255,255,255,.55);
@@ -570,9 +609,16 @@
       <a href="#persian">حالت فارسی</a>
       <a href="#markdown">متن کامل</a>
       <a href="#gallery">گالری</a>
+      <a href="#creator">سازنده</a>
     </nav>
 
     <div class="topbar__actions">
+      <div class="topbar__social" aria-label="لینک‌های سازنده">
+        <a href="https://github.com/mashmalol" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/mashmalol/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/3dchan3d/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+
       <button class="btn btn--ghost btn--sm" data-action="copy" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
         <span>کپی</span>
@@ -882,7 +928,7 @@
     <div class="sec__head">
       <p class="sec__kicker">۰۸ — تولید تصویر</p>
       <h2 class="sec__title">دستورالعمل ساخت تصویر بسته‌بندی</h2>
-      <p class="sec__desc">پیش از هر تولید تصویر، مهارت تصویرسازی خوانده می‌شود. سپس این پارامترها مشخص می‌گردند.</p>
+      <p class="sec__desc">پیش از هر تولید تصویر، مهارت تصویرسازی خوانده می‌شود. سپس این پارامترها مشخص می‌گردند. عملکرد نهایی بسته به مدل تصویرسازی متفاوت است و هر مدل در خوانایی فارسی، جزئیات بسته و ترکیب‌بندی نتیجه‌ای متفاوت می‌تواند ارائه دهد.</p>
     </div>
 
     <div class="grid-3">
@@ -1004,6 +1050,7 @@ All visible package copy must be Persian and written with Persian-script letters
 When generating soda packaging imagery:
 
 - Read the image-generation skill first.
+- Note that the skill may produce different results across different image models, because each model handles Persian typography, packaging detail, and text fidelity differently.
 - Specify camera angle, composition, container geometry, condensation, lighting, background, surface, and package mood.
 - Keep the can or bottle as the hero subject and preserve label geometry.
 - Use realistic materials: anodized aluminum, clear PET, glass, ink, varnish, foil, and water droplets as appropriate.

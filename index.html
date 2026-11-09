@@ -243,6 +243,38 @@
   .step h3{margin:0 0 6px;font-size:15.5px;font-weight:800}
   .step p{margin:0;font-size:14px;color:var(--ink-soft);line-height:2}
 
+  .prompt-builder{
+    margin-top:28px;padding:24px;background:var(--paper);
+    border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(43,36,29,.16);
+  }
+  .prompt-builder__head{margin-bottom:20px}
+  .prompt-builder__head h3{margin:0 0 4px;font-family:"Lalezar","Markazi Text",serif;font-size:25px;font-weight:400}
+  .prompt-builder__head p{margin:0;color:var(--ink-soft);font-size:15px}
+  .prompt-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .prompt-field{display:grid;gap:6px;min-width:0}
+  .prompt-field--wide{grid-column:1/-1}
+  .prompt-field label{font-size:15px;font-weight:700;color:var(--ink)}
+  .prompt-field input,.prompt-field select,.prompt-field textarea{
+    width:100%;min-height:44px;padding:10px 12px;border:1px solid rgba(43,36,29,.28);
+    border-radius:2px;background:#fffdf8;color:var(--ink);font:inherit;font-size:15px;
+  }
+  .prompt-field textarea{min-height:92px;resize:vertical}
+  .prompt-field :is(input,select,textarea):focus{outline:3px solid rgba(52,120,108,.2);border-color:var(--turq-deep)}
+  .prompt-form__actions{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .prompt-output{display:none;margin-top:20px}
+  .prompt-output.is-visible{display:block}
+  .prompt-output label{display:block;margin-bottom:8px;font-weight:700}
+  .prompt-output textarea{
+    display:block;width:100%;min-height:280px;padding:14px;resize:vertical;direction:ltr;text-align:left;
+    border:2px solid var(--ink);border-radius:2px;background:#211e18;color:#f8eedb;
+    font:13px/1.65 var(--mono);tab-size:2;
+  }
+  @media (max-width:560px){
+    .prompt-builder{padding:18px}
+    .prompt-form{grid-template-columns:1fr}
+    .prompt-field--wide,.prompt-form__actions{grid-column:auto}
+  }
+
   /* Defaults chips */
   .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
   .chip{
@@ -771,6 +803,66 @@
         </div>
       </div>
     </div>
+
+    <div class="prompt-builder">
+      <div class="prompt-builder__head">
+        <h3>ساخت پرامپت بسته‌بندی</h3>
+        <p>درخواستت را وارد کن تا یک پرامپت JSON ساختاریافته و هماهنگ با این مهارت آماده و دانلود شود.</p>
+      </div>
+
+      <form class="prompt-form" id="prompt-form">
+        <div class="prompt-field prompt-field--wide">
+          <label for="request-brief">شرح درخواست</label>
+          <textarea id="request-brief" name="brief" placeholder="مثلاً یک نوشابهٔ گازدار با طعم انار و لیمو برای بازار ایران؛ بسته‌بندی جسور و امروزی باشد."></textarea>
+        </div>
+        <div class="prompt-field">
+          <label for="request-flavor">طعم</label>
+          <input id="request-flavor" name="flavor" type="text" placeholder="مثلاً انار و لیمو">
+        </div>
+        <div class="prompt-field">
+          <label for="request-container">نوع بسته‌بندی</label>
+          <select id="request-container" name="container">
+            <option value="قوطی اسلیم ۳۳۰ میلی‌لیتری">قوطی اسلیم ۳۳۰ میلی‌لیتری</option>
+            <option value="بطری PET پانصد میلی‌لیتری">بطری PET پانصد میلی‌لیتری</option>
+            <option value="بطری شیشه‌ای">بطری شیشه‌ای</option>
+            <option value="مولتی‌پک یا بستهٔ چندتایی">مولتی‌پک یا بستهٔ چندتایی</option>
+          </select>
+        </div>
+        <div class="prompt-field">
+          <label for="request-market">بازار یا منطقه</label>
+          <input id="request-market" name="market" type="text" placeholder="مثلاً ایران">
+        </div>
+        <div class="prompt-field">
+          <label for="request-audience">مخاطب</label>
+          <input id="request-audience" name="audience" type="text" placeholder="مخاطب بزرگسال گسترده">
+        </div>
+        <div class="prompt-field">
+          <label for="request-style">حال‌وهوای بصری</label>
+          <input id="request-style" name="style" type="text" placeholder="مثلاً معاصر، پرانرژی و خوانا روی قفسه">
+        </div>
+        <div class="prompt-field">
+          <label for="request-colors">رنگ‌های دلخواه</label>
+          <input id="request-colors" name="colors" type="text" placeholder="مثلاً قرمز اناری و سبز لیمویی">
+        </div>
+        <div class="prompt-field">
+          <label for="request-brand">نام برند پیشنهادی (اختیاری)</label>
+          <input id="request-brand" name="brand" type="text" placeholder="اگر خالی بماند، یک نام فارسی پیشنهاد شود">
+        </div>
+        <div class="prompt-field prompt-field--wide">
+          <label for="request-copy">متن دقیق روی بسته (اختیاری)</label>
+          <input id="request-copy" name="packageCopy" type="text" placeholder="اگر خالی بماند، متن کوتاه فارسی پیشنهاد شود">
+        </div>
+        <div class="prompt-form__actions">
+          <button class="btn btn--primary" type="submit">ساخت JSON و دانلود</button>
+        </div>
+      </form>
+
+      <div class="prompt-output" id="prompt-output" aria-live="polite">
+        <label for="prompt-json">پیش‌نمایش پرامپت JSON</label>
+        <textarea id="prompt-json" readonly spellcheck="false" aria-label="پیش‌نمایش پرامپت JSON"></textarea>
+        <button class="btn btn--ghost btn--sm" id="download-prompt" type="button" style="margin-top:10px">دانلود دوبارهٔ JSON</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1193,6 +1285,9 @@ For every request, deliver packaging only. For a product family, show how flavor
   const toast = document.getElementById('toast');
   const mdText = document.getElementById('md-text');
   const mdMeta = document.getElementById('md-meta');
+  const promptForm = document.getElementById('prompt-form');
+  const promptOutput = document.getElementById('prompt-output');
+  const promptJson = document.getElementById('prompt-json');
 
   let galleryItems = [...galleryImages];
   let currentLightboxIndex = 0;
@@ -1278,6 +1373,68 @@ For every request, deliver packaging only. For a product family, show how flavor
     URL.revokeObjectURL(url);
     showToast('فایل Markdown دانلود شد');
   }
+
+  function buildPackagingPrompt() {
+    const formData = new FormData(promptForm);
+    const getValue = (name, fallback) => String(formData.get(name) || '').trim() || fallback;
+
+    return {
+      skill: 'soda-product-generator',
+      task: 'Design original carbonated soft-drink packaging only.',
+      request: {
+        brief: getValue('brief', 'یک بسته‌بندی اصیل برای نوشابهٔ گازدار طراحی کن.'),
+        flavor: getValue('flavor', 'یک طعم میوه‌ای یا گیاهی شفاف با نشانهٔ رنگ قابل‌تشخیص'),
+        container: getValue('container', 'قوطی اسلیم ۳۳۰ میلی‌لیتری'),
+        market: getValue('market', 'بازار مشخص‌نشده؛ در صورت نیاز فرض معقول را اعلام کن'),
+        audience: getValue('audience', 'مخاطب بزرگسال گسترده'),
+        visual_style: getValue('style', 'جسور، معاصر، با کنتراست بالا و خوانا روی قفسه'),
+        colors: getValue('colors', 'پالت کنتراست‌بالا متناسب با طعم'),
+        brand_name: getValue('brand', 'یک نام متمایز فارسی پیشنهاد بده'),
+        exact_package_copy: getValue('packageCopy', 'یک توصیف محصول، نام طعم و شعار کوتاه فقط به خط فارسی پیشنهاد بده')
+      },
+      design_constraints: [
+        'Create soda and carbonated soft-drink packaging only; do not create advertisements, posters, social assets, or unrelated products.',
+        'Write all visible package text in Persian using Persian-script letters and Persian digits only. Do not use Latin letters, Arabic-language copy, transliteration, pseudo-text, or Latin-letter logos.',
+        'Keep package copy short, legible, and limited to the exact approved Persian wording; if accurate Persian lettering cannot be rendered, leave the text area blank for later typesetting.',
+        'Do not invent nutrition facts, certifications, health claims, or regulatory approvals; use Persian placeholders for unverified required information.',
+        'Create one final packaging image unless the user explicitly requests a sheet or multiple variants.'
+      ],
+      image_generation: {
+        read_image_generation_skill_first: true,
+        asset: 'A clear product render or mockup of the package only.',
+        image_model_note: 'Results can vary across image models, especially in Persian lettering, packaging detail, and text fidelity. Review generated text and leave it blank for later typesetting if it is inaccurate.',
+        visual_prompt_guidance: 'Specify camera angle, composition, accurate container geometry, material and print finish, lighting, background, and surface. Keep the package as the sole subject.'
+      },
+      response_requirements: [
+        'Respond in Persian.',
+        'Provide the package format, flavor, visual direction, colors, graphics, Persian typography, finish, and exact package copy.',
+        'Clearly identify assumptions and any unverified details that need regulatory review.'
+      ]
+    };
+  }
+
+  function downloadPackagingPrompt() {
+    if (!promptJson.value) return;
+    const blob = new Blob([promptJson.value], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'soda-packaging-prompt.json';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showToast('پرامپت JSON دانلود شد');
+  }
+
+  promptForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    promptJson.value = JSON.stringify(buildPackagingPrompt(), null, 2);
+    promptOutput.classList.add('is-visible');
+    downloadPackagingPrompt();
+  });
+
+  document.getElementById('download-prompt').addEventListener('click', downloadPackagingPrompt);
 
   document.querySelectorAll('[data-action]').forEach((button) => {
     button.addEventListener('click', async () => {

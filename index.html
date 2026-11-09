@@ -610,9 +610,25 @@
   .footer{background:var(--paper);border-top:3px solid var(--ink)}
 
   @media (max-width:560px){
+    .topbar__in{flex-wrap:wrap;gap:8px;padding:8px 0}
+    .brand{min-width:0;flex:1 1 auto;white-space:normal;font-size:17px}
+    .brand small{overflow-wrap:anywhere}
+    .topbar__actions{width:100%;justify-content:space-between;gap:6px;flex-wrap:nowrap}
+    .topbar__social{gap:5px}
+    .topbar__social a{padding:7px 8px;font-size:12px}
     h1{font-size:42px}
+    h1 em{white-space:normal}
     .sec__title{font-size:30px}
+    .hero__cta .btn{max-width:100%;white-space:normal;text-align:center}
     .hero::before,.hero::after{display:none}
+  }
+  @media (max-width:360px){
+    .topbar__social a{padding:6px;font-size:11px}
+    h1{font-size:36px}
+    .sec__title{font-size:27px}
+    .sec{padding-block:52px}
+    .card,.step,.chip{padding:16px}
+    .gallery-shell{padding:12px}
   }
 </style>
 </head>
